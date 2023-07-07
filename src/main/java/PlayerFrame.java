@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * 플레이어 설정하는 클래스입니다.
@@ -61,6 +63,34 @@ public class PlayerFrame extends CommonFrame {
         if(playerNameText.length() == 0) {
             JOptionPane.showMessageDialog(null, "공백은 입력불가합니다.");
             return;
+        }
+
+        playerNameAddList.add(playerNameText);
+
+        playerNameAddList.stream().forEach(System.out::println);
+        // 중복값이 있을 경우
+        if(Collections.frequency(playerNameAddList, playerNameText) >= 2) {
+
+            // 동명이인이 추가되었다는 메세지와 함께 yes or no를 선택할 수 있는 confirm창 띄우기 -> yes일 경우 동명이인 처리하기
+            if(JOptionPane.showConfirmDialog(null,
+                    "동명이인이 추가되었습니다.",
+                    "정말로 추가하시겠습니까?",
+                    JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+
+                String[] sameCheckName = "A,B,C".split(",");
+
+                // 플레이어는 4명이 최대이므로 모두 동명이인으로 처리한다해도 기본, A, B, C 까지만 있으면 되고
+                // A를 붙인 사람이 없으면 A를 붙이고, B를 붙인 사람이 없으면 B.. 이런식으로 하나하나씩 대입하며 동명이인이 없도록 로직 구현함.
+                for (String name : sameCheckName) {
+                    String equalCheckName = playerNameText + name;
+                    if (!playerNameAddList.contains(equalCheckName)) {
+                        playerNameAddList.add(equalCheckName);
+                        playerNameAddList.remove(playerNameText);
+                        JOptionPane.showMessageDialog(null, "지금 추가된 값은 " + equalCheckName + "으로 저장됩니다.");
+                        break;
+                    }
+                }
+            }
         }
     };
 }
