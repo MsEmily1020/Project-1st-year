@@ -1,6 +1,7 @@
 import com.sun.tools.javac.Main;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -11,8 +12,18 @@ import java.io.File;
  * @author  : MsEmily1020
  */
 public class MainFrame extends CommonFrame {
+
+    // titleClip은 플레이어를 설정하는 화면에서도 나와야 하는 음성 파일이기 때문에 전역변수로 설정함.
+    public static Clip titleClip;		   //https://pixabay.com/ko/music/search/genre/%EB%B9%84%EB%94%94%EC%98%A4%20%EA%B2%8C%EC%9E%84/
+
     public MainFrame() {
         super("해적룰렛");
+
+        audio("./image/open.wav"); // 게임 프로그램을 열었을 때 효과음
+
+        // 메인 오디오 (무한 반복으로 설정)
+        titleClip = audio("./image/titleClip.wav");
+        titleClip.loop(Clip.LOOP_CONTINUOUSLY);
 
         // 메인 화면을 구성하는 버튼 3가지 (게임 시작, 설명, 종료)
         JButton startBtn = new JButton("게임 시작");
