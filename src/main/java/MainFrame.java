@@ -1,10 +1,5 @@
-import com.sun.tools.javac.Main;
-
-import javax.imageio.ImageIO;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
-import java.awt.*;
-import java.io.File;
 
 /**
  * 메인화면을 구성하는 클래스입니다.
