@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 /**
  * 플레이어 설정하는 클래스입니다.
@@ -8,7 +9,7 @@ import java.awt.*;
  */
 public class PlayerFrame extends CommonFrame {
     JTextField playerNameTextField = new JTextField();
-    
+
     public PlayerFrame() {
         super("플레이어 설정");
 
@@ -36,9 +37,27 @@ public class PlayerFrame extends CommonFrame {
         add(this.setBounds(gameStartBtn, 730, 800, 150, 50, 255, 255, 255)).setVisible(false);
         add(this.setBounds(beforeBtn, 20, 800, 150, 50, 255, 255, 255));
 
+        // 추가 버튼을 눌렀을 때 addBtnListener 실행하기
+        playerAddBtn.addActionListener(addBtnListener);
+
         //이미지 넣기
         ImagePanel img = new ImagePanel(new ImageIcon("./image/player.jpg").getImage());
         add(img);
 
     }
+
+    /**
+     * 추가 버튼을 눌렀을 때 실행하는 리스너입니다.
+     */
+    ActionListener addBtnListener = e -> {
+        audio("./image/click.wav"); // 클릭했을 때 효과음
+
+        String playerNameText = playerNameTextField.getText().trim();
+
+        // 입력한 이름이 공백일 경우 공백은 불가능하다는 메세지 띄우기
+        if(playerNameText.length() == 0) {
+            JOptionPane.showMessageDialog(null, "공백은 입력불가합니다.");
+            return;
+        }
+    };
 }
