@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * 플레이어 설정하는 클래스입니다.
@@ -8,6 +9,8 @@ import java.awt.event.ActionListener;
  * @author  : MsEmily1020
  */
 public class PlayerFrame extends CommonFrame {
+
+    public static ArrayList<String> playerNameAddList = new ArrayList<String>();
     JTextField playerNameTextField = new JTextField();
 
     public PlayerFrame() {
@@ -41,8 +44,8 @@ public class PlayerFrame extends CommonFrame {
         playerAddBtn.addActionListener(addBtnListener);
 
         //이미지 넣기
-        ImagePanel img = new ImagePanel(new ImageIcon("./image/player.jpg").getImage());
-        add(img);
+        ImagePanel playerFrameBackgroundImage = new ImagePanel(new ImageIcon("./image/player.jpg").getImage());
+        add(playerFrameBackgroundImage);
 
     }
 

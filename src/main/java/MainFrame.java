@@ -46,8 +46,8 @@ public class MainFrame extends CommonFrame {
         });
 
         // 메인 화면 이미지
-        ImagePanel img = new ImagePanel(new ImageIcon("./image/title.jpg").getImage());
-        add(img);
+        ImagePanel mainFrameBackgroundImage = new ImagePanel(new ImageIcon("./image/title.jpg").getImage());
+        add(mainFrameBackgroundImage);
     }
 
     public static void main(String[] args) {
