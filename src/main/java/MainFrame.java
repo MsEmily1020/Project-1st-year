@@ -31,7 +31,8 @@ public class MainFrame extends CommonFrame {
 
         // 게임 시작 버튼을 눌렀을 경우 플레이어를 정하는 화면으로 이동
         startBtn.addActionListener(e -> {
-            // TODO : 플레이어를 정하는 화면으로 이동하기
+            dispose();
+            new PlayerFrame().setVisible(true);
         });
 
         // 게임 설명 버튼을 눌렀을 경우 게임 설명이 있는 화면으로 이동하기
