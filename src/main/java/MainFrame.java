@@ -37,6 +37,10 @@ public class MainFrame extends CommonFrame {
         endBtn.addActionListener(e -> {
             System.exit(0);
         });
+
+        // 메인 화면 이미지
+        ImagePanel img = new ImagePanel(new ImageIcon("./image/title.jpg").getImage());
+        add(img);
     }
 
     public static void main(String[] args) {
