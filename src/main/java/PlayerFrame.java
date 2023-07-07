@@ -15,6 +15,17 @@ public class PlayerFrame extends CommonFrame {
     public static ArrayList<String> playerNameAddList = new ArrayList<String>();
     JTextField playerNameTextField = new JTextField();
 
+    // 플레이어 추가, 삭제, 확인 버튼
+    JButton playerAddBtn = new JButton("추가");
+    JButton playerCheckBtn = new JButton("확인");
+    JButton playerRemoveBtn = new JButton("삭제");
+
+    // 이전 화면으로 돌아가는 버튼
+    JButton beforeBtn = new JButton("이전");
+
+    // 게임 시작 화면으로 넘어가는 버튼
+    JButton gameStartBtn = new JButton("게임 시작");
+
     public PlayerFrame() {
         super("플레이어 설정");
 
@@ -22,17 +33,6 @@ public class PlayerFrame extends CommonFrame {
         playerNameTextField.setHorizontalAlignment(JTextField.CENTER);
         add(this.setBounds(playerNameTextField, 200, 230, 500, 300, 255, 255, 255));
         playerNameTextField.setFont(new Font("굴림", Font.PLAIN, 50));
-
-        // 플레이어 추가, 삭제, 확인 버튼
-        JButton playerAddBtn = new JButton("추가");
-        JButton playerCheckBtn = new JButton("확인");
-        JButton playerRemoveBtn = new JButton("삭제");
-
-        // 이전 화면으로 돌아가는 버튼
-        JButton beforeBtn = new JButton("이전");
-
-        // 게임 시작 화면으로 넘어가는 버튼
-        JButton gameStartBtn = new JButton("게임 시작");
 
         add(this.setBounds(playerAddBtn, 185, 550, 150, 50, 255, 0, 0));
         add(this.setBounds(playerCheckBtn, 367, 550, 150, 50, 255, 0, 0));
@@ -90,7 +90,19 @@ public class PlayerFrame extends CommonFrame {
                         break;
                     }
                 }
+
             }
+        }
+
+        // 동명이인이 아닐 경우
+        else {
+            JOptionPane.showMessageDialog(null, "지금 추가된 값은 " + playerNameText + "으로 저장됩니다.");
+        }
+
+        // 최대 인원 수는 4명이므로 4명이라면 더는 추가 못하도록 막음.
+        if(playerNameAddList.size() == 4) {
+            JOptionPane.showMessageDialog(null, "최대 4명까지입니다. 혹시 변경하고 싶다면 삭제 후 추가 눌러주세요.");
+            playerAddBtn.setVisible(false);
         }
     };
 }
