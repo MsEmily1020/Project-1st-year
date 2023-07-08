@@ -44,6 +44,9 @@ public class PlayerFrame extends CommonFrame {
 
         // 추가 버튼을 눌렀을 때 addBtnListener 실행하기
         playerAddBtn.addActionListener(addBtnListener);
+        
+        // 삭제 버튼을 눌렀을 때 removeBtnListener 실행하기
+        playerRemoveBtn.addActionListener(removeBtnListener);
 
         //이미지 넣기
         ImagePanel playerFrameBackgroundImage = new ImagePanel(new ImageIcon("./image/player.jpg").getImage());
@@ -52,7 +55,7 @@ public class PlayerFrame extends CommonFrame {
     }
 
     /**
-     * 추가 버튼을 눌렀을 때 실행하는 리스너입니다.
+     * 플레이어 추가 버튼을 눌렀을 때 실행하는 리스너입니다.
      */
     ActionListener addBtnListener = e -> {
         audio("./image/click.wav"); // 클릭했을 때 효과음
@@ -104,5 +107,12 @@ public class PlayerFrame extends CommonFrame {
             JOptionPane.showMessageDialog(null, "최대 4명까지입니다. 혹시 변경하고 싶다면 삭제 후 추가 눌러주세요.");
             playerAddBtn.setVisible(false);
         }
+    };
+
+    /**
+     * 플레이어 삭제 버튼을 눌렀을 때 실행하는 리스너입니다.
+     */
+    ActionListener removeBtnListener = e -> {
+        
     };
 }
