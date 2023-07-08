@@ -37,7 +37,8 @@ public class MainFrame extends CommonFrame {
 
         // 게임 설명 버튼을 눌렀을 경우 게임 설명이 있는 화면으로 이동하기
         explainBtn.addActionListener(e -> {
-            // TODO : 게임 설명하는 화면으로 이동하기
+            dispose();
+            new ExplanFrame().setVisible(true);
         });
 
         // 게임 종료 버튼을 눌렀을 경우 게임 종료하기
