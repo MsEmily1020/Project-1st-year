@@ -52,7 +52,9 @@ public class PlayerFrame extends CommonFrame {
         // 확인 버튼을 눌렀을 때 checkBtnListener 실행하기
         playerCheckBtn.addActionListener(checkBtnListener);
 
-        // 이전 버튼을 눌렀을 때 이전 화면 즉, 메인 화면으로 이동하기
+        /**
+         * 이전 버튼을 눌렀을 때 이전 화면 즉, 메인 화면으로 이동하는 리스너 입니다.
+         */
         beforeBtn.addActionListener(e -> {
             if(playerNameAddList.size() >= 1) {
                 if(JOptionPane.showConfirmDialog(null,
@@ -69,6 +71,13 @@ public class PlayerFrame extends CommonFrame {
             playerNameAddList.clear();
             MainFrame.titleClip.close();
             new MainFrame().setVisible(true);
+        });
+
+        /**
+         * 게임 시작 버튼을 눌렀을 경우 실행하는 리스너 입니다.
+         */
+        gameStartBtn.addActionListener(e -> {
+            // TODO : 게임 화면으로 이동하기
         });
 
         //이미지 넣기
