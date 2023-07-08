@@ -63,6 +63,8 @@ public class PlayerFrame extends CommonFrame {
     ActionListener addBtnListener = e -> {
         audio("./image/click.wav"); // 클릭했을 때 효과음
 
+        gameStartBtn.setVisible(false); // 만약 확인 버튼을 누르고 다시 추가 버튼을 눌렀다면 게임 시작 버튼이 안보이도록 해야함
+
         String playerNameText = playerNameTextField.getText().trim();
 
         // 입력한 이름이 공백일 경우 공백은 불가능하다는 메세지 띄우기
@@ -116,6 +118,8 @@ public class PlayerFrame extends CommonFrame {
      * 플레이어 삭제 버튼을 눌렀을 때 실행하는 리스너입니다.
      */
     ActionListener removeBtnListener = e -> {
+
+        gameStartBtn.setVisible(false); // 만약 확인 버튼을 누르고 다시 추가 버튼을 눌렀다면 게임 시작 버튼이 안보이도록 해야함
 
         String playerNameText = playerNameTextField.getText().trim();
 
