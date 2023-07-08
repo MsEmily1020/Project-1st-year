@@ -3,6 +3,7 @@ import com.sun.tools.javac.Main;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -77,7 +78,8 @@ public class PlayerFrame extends CommonFrame {
          * 게임 시작 버튼을 눌렀을 경우 실행하는 리스너 입니다.
          */
         gameStartBtn.addActionListener(e -> {
-            // TODO : 게임 화면으로 이동하기
+            dispose();
+            new TimerFrame().setVisible(true);
         });
 
         //이미지 넣기
