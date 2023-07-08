@@ -113,6 +113,20 @@ public class PlayerFrame extends CommonFrame {
      * 플레이어 삭제 버튼을 눌렀을 때 실행하는 리스너입니다.
      */
     ActionListener removeBtnListener = e -> {
-        
+
+        String playerNameText = playerNameTextField.getText().trim();
+
+        // List 안에 입력 값이 포함되어 있을 경우 해당 플레이어를 List에서 삭제하기
+        if(playerNameAddList.contains(playerNameText)) {
+            audio("./image/correct.wav");
+            playerNameAddList.remove(playerNameText);
+            JOptionPane.showMessageDialog(null, playerNameText + "삭제되었습니다.");
+            playerAddBtn.setVisible(true); // 만약 플레이어가 4명이었을 때 삭제 버튼을 눌렀다면 다시 보이게 해야하기 때문에 씀
+        }
+
+        else {
+            audio("./image/error.wav");
+            JOptionPane.showMessageDialog(null, playerNameText + "는 존재하지 않습니다.");
+        }
     };
 }
