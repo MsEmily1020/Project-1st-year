@@ -48,6 +48,9 @@ public class PlayerFrame extends CommonFrame {
         // 삭제 버튼을 눌렀을 때 removeBtnListener 실행하기
         playerRemoveBtn.addActionListener(removeBtnListener);
 
+        // 확인 버튼을 눌렀을 때 checkBtnListener 실행하기
+        playerCheckBtn.addActionListener(checkBtnListener);
+
         //이미지 넣기
         ImagePanel playerFrameBackgroundImage = new ImagePanel(new ImageIcon("./image/player.jpg").getImage());
         add(playerFrameBackgroundImage);
@@ -127,6 +130,24 @@ public class PlayerFrame extends CommonFrame {
         else {
             audio("./image/error.wav");
             JOptionPane.showMessageDialog(null, playerNameText + "는 존재하지 않습니다.");
+        }
+    };
+
+    /**
+     * 확인 버튼을 눌렀을 때 실행하는 리스너입니다.
+     */
+    ActionListener checkBtnListener = e -> {
+        // 만약 List 값이 2 이하 즉, 플레이어가 1명 또는 없을 때
+        if(playerNameAddList.size() < 2) {
+            JOptionPane.showMessageDialog(null, "최소 2명 입력해주세요.");
+            audio("./image/error.wav");
+        }
+        //프로그램에서 원하는 값으로 플레이어 수가 정해졌을 때(2~4명 사이로)
+        else {
+            audio("./image/correct.wav");
+            gameStartBtn.setVisible(true); //인원 수가 조건에 맞을 경우에만 게임 시작 버튼 보이게
+            JOptionPane.showMessageDialog(null, "확인되었습니다.");
+            Collections.shuffle(playerNameAddList); //배열 순서 무작위 돌리기
         }
     };
 }
