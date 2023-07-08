@@ -3,6 +3,11 @@ import java.awt.*;
 import java.util.TimerTask;
 import java.util.Timer;
 
+/**
+ * 게임의 재미 요소를 더할 타이머 클래스입니다.
+ * @version : 1.1
+ * @author  : MsEmily1020
+ */
 public class TimerFrame extends CommonFrame {
     public TimerFrame() {
         super("타이머");

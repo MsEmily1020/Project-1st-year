@@ -2,6 +2,11 @@ import com.sun.tools.javac.Main;
 
 import javax.swing.*;
 
+/**
+ * 게임에 대한 설명을 보여주는 클래스입니다.
+ * @version : 1.1
+ * @author  : MsEmily1020
+ */
 public class ExplanFrame extends CommonFrame {
     public ExplanFrame() {
         super("게임 설명");
