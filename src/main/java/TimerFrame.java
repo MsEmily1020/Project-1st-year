@@ -1,3 +1,4 @@
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.util.TimerTask;
@@ -9,6 +10,7 @@ import java.util.Timer;
  * @author  : MsEmily1020
  */
 public class TimerFrame extends CommonFrame {
+    public static Clip gameAudio;
     public TimerFrame() {
         super("타이머");
 
@@ -27,7 +29,7 @@ public class TimerFrame extends CommonFrame {
             @Override
             public void run() {
                 audio("./image/bell.wav");
-                audio("./image/gameBgm.wav");
+                gameAudio = audio("./image/gameBgm.wav");
                 dispose();
                 new GameStartFrame().setVisible(true);
             }
