@@ -3,13 +3,13 @@
 
 ## ⌚ Project execution period
   - ~ 2022.11.30
+  - 코드 리팩토링 1차시 : 2023.07.07~08
 
 ## 🛠 Development Environment
 - GUI
   
-  - Language : `Java 8` 
-  - JDK `1.8.0_341`
-  - Tool : `Eclipse`
+  - Language : `Java 17` 
+  - Tool : `Intellij`
 
 ## 📃 Main Composition
 
