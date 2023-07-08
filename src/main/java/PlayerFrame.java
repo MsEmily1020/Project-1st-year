@@ -1,8 +1,9 @@
+import com.sun.tools.javac.Main;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -50,6 +51,25 @@ public class PlayerFrame extends CommonFrame {
 
         // 확인 버튼을 눌렀을 때 checkBtnListener 실행하기
         playerCheckBtn.addActionListener(checkBtnListener);
+
+        // 이전 버튼을 눌렀을 때 이전 화면 즉, 메인 화면으로 이동하기
+        beforeBtn.addActionListener(e -> {
+            if(playerNameAddList.size() >= 1) {
+                if(JOptionPane.showConfirmDialog(null,
+                        "예를 누르시면 리셋된 채로 메인화면으로 나가집니다",
+                        "경고 ) 추가된 사람이 있습니다.",
+                        JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)
+
+                    return;
+            }
+
+            audio("./image/beforeClick.wav");
+
+            dispose();
+            playerNameAddList.clear();
+            MainFrame.titleClip.close();
+            new MainFrame().setVisible(true);
+        });
 
         //이미지 넣기
         ImagePanel playerFrameBackgroundImage = new ImagePanel(new ImageIcon("./image/player.jpg").getImage());
